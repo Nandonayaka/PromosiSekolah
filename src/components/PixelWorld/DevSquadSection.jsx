@@ -113,7 +113,7 @@ const DevSquadSection = ({
                                 </div>
 
                                 {/* THE CENTER INDICATOR */}
-                                <div className="relative z-10 w-12 h-12 flex items-center justify-center">
+                                <div className="relative z-10 w-12 h-12 flex items-center justify-center pixel-font">
                                     <div
                                         className={`w-4 h-4 rotate-45 border-2 ${isLocked ? 'border-[#333] bg-black' : 'border-white bg-white animate-pulse'}`}
                                         style={{ borderColor: isLocked ? '#333' : dev.color, backgroundColor: isCompleted ? dev.color : isLocked ? '#000' : '#fff' }}

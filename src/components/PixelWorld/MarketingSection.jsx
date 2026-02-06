@@ -142,7 +142,7 @@ const MarketingSection = ({
                                         </div>
                                     </div>
                                     <div className="mt-4 flex justify-between items-center">
-                                        <div className="pixel-font text-[10px] text-white tracking-widest">{item.title}</div>
+                                        <div className="pixel-font text-[8px] text-white tracking-widest">{item.title}</div>
                                         <div className="w-2 h-2 bg-[#FF4500]/20 rounded-full group-hover:bg-[#FF4500] transition-colors"></div>
                                     </div>
                                 </motion.div>

@@ -40,12 +40,12 @@ const CareerPathSection = () => {
   return (
     <section className="py-24 px-6  relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center mb-20 relative z-10">
-        <h2  className="text-white font-mono text-3xl md:text-5xl font-black italic tracking-tighter uppercase">
+        <h2 className="text-white pixel-font text-xl md:text-3xl font-black italic tracking-tighter uppercase leading-tight">
           DARI SISWA BIASA MENJADI <br />
           <span className="text-orange-500 underline decoration-double">ARSITEK DIGITAL</span>
         </h2>
-        <p  className="text-gray-400 font-mono mt-4 text-sm uppercase tracking-widest">
-            Ikuti Alur Evolusi Kariermu
+        <p className="text-gray-400 pixel-font mt-6 text-[10px] uppercase tracking-widest">
+          Ikuti Alur Evolusi Kariermu
         </p>
       </div>
 
@@ -54,21 +54,21 @@ const CareerPathSection = () => {
           <div key={idx} className="relative flex flex-col items-center">
             <div className={`relative w-full bg-[#12121a] border-2 ${path.color} p-8 rounded-[2rem] hover:scale-105 transition-all duration-300 group min-h-[300px]`}>
               <div className="absolute -top-4 left-6 bg-black px-4 py-1 border border-inherit rounded-full">
-                <span className="text-[10px] font-black text-white italic uppercase tracking-widest">Level 0{idx + 1}</span>
+                <span className="text-[8px] font-black text-white italic uppercase tracking-widest pixel-font">Level 0{idx + 1}</span>
               </div>
 
               <div className="mb-6 w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
                 {path.icon}
               </div>
 
-              <h4 className="text-gray-400 font-mono text-[10px] uppercase mb-1 tracking-widest">{path.stage}</h4>
-              <h3 className="text-white font-black text-xl italic uppercase mb-4 tracking-tighter">{path.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed font-mono">
+              <h4 className="text-gray-400 pixel-font text-[8px] uppercase mb-2 tracking-widest">{path.stage}</h4>
+              <h3 className="text-white font-black text-sm italic uppercase mb-4 tracking-tighter pixel-font">{path.title}</h3>
+              <p className="text-gray-500 text-[10px] leading-relaxed pixel-font">
                 {path.desc}
               </p>
 
               <div className="absolute bottom-4 right-4 opacity-10 group-hover:opacity-100 transition-opacity">
-                 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Astronaut.png" className="w-8 h-8" alt="astro" />
+                <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Astronaut.png" className="w-8 h-8" alt="astro" />
               </div>
             </div>
 

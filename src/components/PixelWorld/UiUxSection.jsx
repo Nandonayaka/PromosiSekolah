@@ -139,7 +139,7 @@ const UiUxSection = ({
                                         </div>
                                     </div>
                                     <div className="mt-4 flex justify-between items-center px-1">
-                                        <div className="pixel-font text-[9px] text-white tracking-widest">{item.title}</div>
+                                        <div className="pixel-font text-[8px] text-white tracking-widest">{item.title}</div>
                                         <Star className="text-[#333] group-hover:text-[#FF00FF] transition-colors" size={10} />
                                     </div>
                                 </motion.div>

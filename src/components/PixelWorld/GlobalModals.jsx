@@ -11,7 +11,9 @@ const GlobalModals = ({
     squadBossHp,
     handleSquadBossAttack,
     accessDeniedMsg,
-    unlockMsg
+    unlockMsg,
+    selectedTech,
+    setSelectedTech
 }) => {
     return (
         <>
@@ -132,10 +134,10 @@ const GlobalModals = ({
                 >
                     <div className="w-full max-w-5xl relative">
                         <div className="flex justify-between items-center mb-8 sm:mb-12 pixel-font">
-                            <div className="text-xl md:text-2xl" style={{ color: activeSquadBoss.color }}>
+                            <div className="text-xl md:text-2xl pixel-font" style={{ color: activeSquadBoss.color }}>
                                 BOSS BATTLE: {activeSquadBoss.role}_MASTER
                             </div>
-                            <button onClick={() => setIsSquadModalOpen(false)} className="text-red-500 hover:scale-110 p-2">[ ESCAPE ]</button>
+                            <button onClick={() => setIsSquadModalOpen(false)} className="text-red-500 hover:scale-110 p-2 pixel-font">[ ESCAPE ]</button>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -186,16 +188,16 @@ const GlobalModals = ({
                                         <div className="w-3 h-3 animate-ping" style={{ backgroundColor: activeSquadBoss.color }}></div>
                                         <h4 className="pixel-font text-lg" style={{ color: activeSquadBoss.color }}>MISSION INTEL:</h4>
                                     </div>
-                                    <p className="pixel-font text-xs leading-loose text-gray-400 border-l-4 border-[#333] pl-4">
+                                    <p className="pixel-font text-[10px] leading-loose text-gray-400 border-l-4 border-[#333] pl-4">
                                         {activeSquadBoss.desc}
                                     </p>
                                 </div>
 
                                 <div className="space-y-4">
                                     <h4 className="pixel-font text-sm text-white underline underline-offset-8 decoration-[#333]">REQUIRED SKILLS:</h4>
-                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 pixel-font text-[9px]">
+                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 pixel-font text-[8px]">
                                         {activeSquadBoss.skills.map((skill, idx) => (
-                                            <li key={idx} className="flex items-center gap-3 text-gray-300">
+                                            <li key={idx} className="flex items-center gap-3 text-gray-300 pixel-font">
                                                 <div className="w-2 h-2 flex-shrink-0" style={{ backgroundColor: activeSquadBoss.color }}></div>
                                                 {skill}
                                             </li>
@@ -220,6 +222,88 @@ const GlobalModals = ({
                             </div>
                         </div>
                     </div>
+                </motion.div>
+            )}
+            {/* TECH STACK DETAIL MODAL */}
+            {selectedTech && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="fixed inset-0 z-[10005] flex justify-center items-center overflow-hidden bg-[#000]/90 backdrop-blur-xl p-4"
+                    onClick={() => setSelectedTech(null)}
+                >
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                        animate={{ scale: 1, opacity: 1, y: 0 }}
+                        className="relative w-full max-w-4xl my-10 md:my-24 border-2 border-orange-500/50 bg-[#0d0d15] p-6 md:p-10 pixel-font text-white shadow-[0_0_50px_rgba(249,115,22,0.3)] rounded-3xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Header: Wider Layout */}
+                        <div className="flex justify-between items-center border-b border-gray-800 pb-8 mb-8">
+                            <div className="flex items-center gap-6">
+                                <div className="p-4 bg-white/5 pixel-border border-[#333]">
+                                    <img src={selectedTech.logo} className="w-16 h-16 object-contain" alt="logo" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl md:text-4xl font-bold text-orange-500 uppercase tracking-tighter pixel-font">
+                                        {selectedTech.name}
+                                    </h3>
+                                    <span className="text-[10px] bg-orange-500/10 text-orange-400 px-3 py-1.5 border border-orange-500/30 rounded mt-3 inline-block pixel-font">
+                                        STATUS: READY_TO_LEARN
+                                    </span>
+                                </div>
+                            </div>
+                            <button onClick={() => setSelectedTech(null)} className="text-gray-500 hover:text-orange-500 transition-colors font-bold pixel-font text-[10px] p-2 bg-black/40 border-2 border-[#333] hover:border-orange-500/50">
+                                [ CLOSE_X ]
+                            </button>
+                        </div>
+
+                        {/* Two Column Content */}
+                        <div className="grid lg:grid-cols-2 gap-10 items-start">
+                            {/* Left Column: Mission */}
+                            <div className="space-y-6">
+                                <div className="bg-orange-500/5 p-8 border-l-4 border-orange-500 h-full relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <Star size={64} className="text-orange-500" />
+                                    </div>
+                                    <p className="text-[10px] text-orange-500 mb-4 font-bold tracking-widest pixel-font">MISSION_OBJECTIVE</p>
+                                    <p className="text-xs md:text-sm text-gray-300 leading-relaxed italic pixel-font">
+                                        "{selectedTech.desc}"
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Right Column: Stats & Competency */}
+                            <div className="space-y-8">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[9px] uppercase text-gray-400">
+                                    <div className="border border-gray-800 p-5 bg-white/5 rounded-xl hover:border-gray-700 transition-colors">
+                                        <p className="mb-2 opacity-50 pixel-font text-[8px]">CLASS_TYPE</p>
+                                        <p className="text-white font-bold text-[10px] pixel-font">Industrial</p>
+                                    </div>
+                                    <div className="border border-gray-800 p-5 bg-white/5 rounded-xl hover:border-gray-700 transition-colors">
+                                        <p className="mb-2 opacity-50 pixel-font text-[8px]">MENTOR_SUPPORT</p>
+                                        <p className="text-white font-bold text-[10px] pixel-font text-wrap">Hummatech Indonesia</p>
+                                    </div>
+                                </div>
+
+                                <div className="text-[9px]">
+                                    <div className="flex items-center gap-2 mb-4">
+                                        <div className="w-2 h-2 bg-cyan-400"></div>
+                                        <p className="text-cyan-400 font-black tracking-widest pixel-font">CORE_COMPETENCY</p>
+                                    </div>
+                                    <p className="bg-cyan-400/5 p-5 border border-cyan-400/20 text-cyan-300 uppercase font-bold rounded-xl pixel-font text-[11px] leading-relaxed">
+                                        {selectedTech.role}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-12 pt-8 border-t border-gray-900">
+                            <p className="text-center text-[10px] text-gray-600 animate-pulse uppercase tracking-[0.2em] pixel-font">
+                                -- AWAKEN YOUR POTENTIAL IN HUMMATECH INDUSTRIAL CLASS --
+                            </p>
+                        </div>
+                    </motion.div>
                 </motion.div>
             )}
         </>
