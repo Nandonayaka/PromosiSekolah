@@ -10,8 +10,8 @@ const AdvantagesSection = () => {
 
     const partners = [
         { name: "HUMMATECH", img: "/assets/images/logo/hummatech.png" },
-        { name: "GOOGLE", img: "/assets/images/logo/smk3pmk.png" },
-        { name: "GITHUB", img: "/assets/images/logo/seminar-logo.png" },
+        { name: "SMKN 3 PAMEKASAN", img: "/assets/images/logo/smk3pmk.png" },
+        { name: "TEFA SKANIGA", img: "/assets/images/logo/seminar-logo.png" },
     ];
 
     return (
