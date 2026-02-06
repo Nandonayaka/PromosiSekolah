@@ -15,6 +15,9 @@ import MasterGallery from '../components/PixelWorld/MasterGallery';
 import NpcTestimonials from '../components/PixelWorld/NpcTestimonials';
 import PixelFooter from '../components/PixelWorld/PixelFooter';
 import GlobalModals from '../components/PixelWorld/GlobalModals';
+import { techStack } from '../components/storage/StorageTech';
+import TechStackSection from '../components/PixelWorld/TechStackSection';
+import CareerPathSection from '../components/PixelWorld/CareerPathSection';
 
 const PixelWorld = () => {
     const [score, setScore] = useState(0);
@@ -29,6 +32,7 @@ const PixelWorld = () => {
     const [unlockedLevel, setUnlockedLevel] = useState(0); // 0: Frontend, 1: Backend, 2: PM, 3: QA
     const [accessDeniedMsg, setAccessDeniedMsg] = useState(null);
     const [unlockMsg, setUnlockMsg] = useState(null);
+      const [selectedTech, setSelectedTech] = useState(null);
 
     const marketingRef = useRef(null);
     const uiuxRef = useRef(null);
@@ -246,16 +250,21 @@ const PixelWorld = () => {
                     />
                 </div>
 
-                {/* 4. APA ITU KELAS INDUSTRI? */}
+                {/* 4. Kode program yang di pelajari */}
+                <TechStackSection  techStack={techStack}  setSelectedTech={setSelectedTech}  selectedTech={selectedTech} />
+
+                <CareerPathSection/>
+
+                {/* 5. APA ITU KELAS INDUSTRI? */}
                 <AboutIndustrial />
 
-                {/* 5. KEUNGGULAN MASUK INDUSTRI */}
+                {/* 6. KEUNGGULAN MASUK INDUSTRI */}
                 <AdvantagesSection />
 
-                {/* 6. MASTER_GALLERY: PREVIEW */}
+                {/* 7. MASTER_GALLERY: PREVIEW */}
                 <MasterGallery onImageClick={setSelectedImg} />
 
-                {/* 7. NPC DIALOGUE SYSTEM (Testimonials) */}
+                {/* 8. NPC DIALOGUE SYSTEM (Testimonials) */}
                 <NpcTestimonials />
             </div>
 
