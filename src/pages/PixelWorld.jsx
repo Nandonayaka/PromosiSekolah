@@ -32,7 +32,7 @@ const PixelWorld = () => {
     const [unlockedLevel, setUnlockedLevel] = useState(0); // 0: Frontend, 1: Backend, 2: PM, 3: QA
     const [accessDeniedMsg, setAccessDeniedMsg] = useState(null);
     const [unlockMsg, setUnlockMsg] = useState(null);
-      const [selectedTech, setSelectedTech] = useState(null);
+    const [selectedTech, setSelectedTech] = useState(null);
 
     const marketingRef = useRef(null);
     const uiuxRef = useRef(null);
@@ -129,13 +129,13 @@ const PixelWorld = () => {
 
     // Prevent body scroll when modal is open
     React.useEffect(() => {
-        if (selectedImg || isSquadModalOpen) {
+        if (selectedImg || isSquadModalOpen || selectedTech) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'auto';
         }
         return () => { document.body.style.overflow = 'auto'; };
-    }, [selectedImg, isSquadModalOpen]);
+    }, [selectedImg, isSquadModalOpen, selectedTech]);
 
     return (
         <div className="min-h-screen bg-[#0F0F23] text-[#E0E0E0] overflow-x-hidden">
@@ -166,6 +166,8 @@ const PixelWorld = () => {
                     cursor: pointer;
                     text-transform: uppercase;
                     box-shadow: inset -4px -4px 0 0 #333;
+                    font-family: 'Press Start 2P', cursive;
+                    font-size: 10px;
                 }
                 
                 .pixel-button:active {
@@ -251,9 +253,9 @@ const PixelWorld = () => {
                 </div>
 
                 {/* 4. Kode program yang di pelajari */}
-                <TechStackSection  techStack={techStack}  setSelectedTech={setSelectedTech}  selectedTech={selectedTech} />
+                <TechStackSection techStack={techStack} setSelectedTech={setSelectedTech} selectedTech={selectedTech} />
 
-                <CareerPathSection/>
+                <CareerPathSection />
 
                 {/* 5. APA ITU KELAS INDUSTRI? */}
                 <AboutIndustrial />
@@ -282,6 +284,8 @@ const PixelWorld = () => {
                 handleSquadBossAttack={handleSquadBossAttack}
                 accessDeniedMsg={accessDeniedMsg}
                 unlockMsg={unlockMsg}
+                selectedTech={selectedTech}
+                setSelectedTech={setSelectedTech}
             />
         </div>
     );
