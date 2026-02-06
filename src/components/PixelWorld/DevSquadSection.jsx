@@ -12,7 +12,7 @@ const DevSquadSection = ({
             icon: <Layout />,
             desc: "Mengubah tampilan desain menjadi kode, membuat animasi agar website lebih hidup.",
             color: "#1E90FF",
-            bossImg: "./assets/images/boss/bos1.png",
+            bossImg: "/assets/images/boss/bos1.png",
             skills: ["Responsive Design", "UI/UX Implementation", "Web Motion", "React/Vite"]
         },
         {
@@ -20,15 +20,15 @@ const DevSquadSection = ({
             icon: <Database />,
             desc: "Mengelola logika dan basis data, membuat API agar sistem berjalan dengan baik.",
             color: "#FF4500",
-            bossImg: "./assets/images/boss/bos2.png",
+            bossImg: "/assets/images/boss/bos2.png",
             skills: ["Server Logics", "API Development", "Database Schema", "Security Architecture"]
         },
         {
             role: "PROJECT_MANAGER",
             icon: <Briefcase />,
-            desc: "Mengatur alur kerja tim, memastikan proyek berjalan sesuai jadwal dan budget.",
+            desc: "Mengatur alur kerja tim, memastikan proyek berjalan sesuai jadwal and budget.",
             color: "#FFD700",
-            bossImg: "./assets/images/boss/bos3.png",
+            bossImg: "/assets/images/boss/bos3.png",
             skills: ["Agile/Scrum", "Risk Management", "Team Building", "Stakeholder Comms"]
         },
         {
@@ -36,7 +36,7 @@ const DevSquadSection = ({
             icon: <ShieldCheck />,
             desc: "Memastikan sistem tanpa bug melalui pengujian intensif untuk menjaga kualitas produk.",
             color: "#06D6A0",
-            bossImg: "./assets/images/boss/bos4.png",
+            bossImg: "/assets/images/boss/bos4.png",
             skills: ["Automated Testing", "Bug Reporting", "Load Testing", "Final Verification"]
         }
     ];

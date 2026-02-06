@@ -10,11 +10,11 @@ const UiUxSection = ({
     onImageClick
 }) => {
     const works = [
-        { title: "JORDAN_BRANDING", img: "./assets/images/uiux/uiux.png", role: "UI_SYSTEM", color: "#FF00FF", desc: "High-fidelity mobile interface design with responsive layouts." },
-        { title: "RAMEN_SHOP", img: "./assets/images/uiux/uiux2.png", role: "UX_ARCH", color: "#00FF41", desc: "Complex dashboard state management and user journey mapping." },
-        { title: "TAKOYAKI", img: "./assets/images/uiux/uiux3.png", role: "UI/UX", color: "#00D1FF", desc: "Dynamic head-up display components for immersive experiences." },
-        { title: "NIKE_BRANDING", img: "./assets/images/uiux/uiux4.jpg", role: "UI/UX", color: "#FF00FF", desc: "High-fidelity mobile interface design with responsive layouts." },
-        { title: "CIMORY", img: "./assets/images/uiux/uiux5.png", role: "UX_ARCH", color: "#00FF41", desc: "Complex dashboard state management and user journey mapping." }
+        { title: "JORDAN_BRANDING", img: "/assets/images/uiux/uiux.png", role: "UI_SYSTEM", color: "#FF00FF", desc: "High-fidelity mobile interface design with responsive layouts." },
+        { title: "RAMEN_SHOP", img: "/assets/images/uiux/uiux2.png", role: "UX_ARCH", color: "#00FF41", desc: "Complex dashboard state management and user journey mapping." },
+        { title: "TAKOYAKI", img: "/assets/images/uiux/uiux3.png", role: "UI/UX", color: "#00D1FF", desc: "Dynamic head-up display components for immersive experiences." },
+        { title: "NIKE_BRANDING", img: "/assets/images/uiux/uiux4.jpg", role: "UI/UX", color: "#FF00FF", desc: "High-fidelity mobile interface design with responsive layouts." },
+        { title: "CIMORY", img: "/assets/images/uiux/uiux5.png", role: "UX_ARCH", color: "#00FF41", desc: "Complex dashboard state management and user journey mapping." }
     ];
 
     return (
@@ -59,7 +59,7 @@ const UiUxSection = ({
                         onClick={onBossClick}
                     >
                         <motion.img
-                            src="./assets/pixel/pixel2.png"
+                            src="/assets/pixel/pixel2.png"
                             alt="UI Boss"
                             animate={uiBossHp <= 0 ? { y: 40, opacity: 0.2, rotate: 20, filter: 'grayscale(1)' } : { y: [0, 8, 0] }}
                             transition={uiBossHp <= 0 ? { duration: 1 } : { repeat: Infinity, duration: 4, ease: "easeInOut" }}

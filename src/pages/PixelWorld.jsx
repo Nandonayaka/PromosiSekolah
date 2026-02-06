@@ -40,11 +40,11 @@ const PixelWorld = () => {
 
     const playSfx = (type) => {
         const sounds = {
-            attack: './assets/audio/boshit.mp3',
-            enter: './assets/audio/boss.mp3',
-            win: './assets/audio/bossdeath.mp3',
-            lock: './assets/audio/notif.mp3',
-            unlock: './assets/audio/unlock.mp3'
+            attack: '/assets/audio/bosshit.mp3',
+            enter: '/assets/audio/boss.mp3',
+            win: '/assets/audio/bossdeath.mp3',
+            lock: '/assets/audio/notif.mp3',
+            unlock: '/assets/audio/unlock.mp3'
         };
         const audio = new Audio(sounds[type]);
         audio.volume = 0.5;

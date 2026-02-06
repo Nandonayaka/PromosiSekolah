@@ -10,12 +10,12 @@ const MarketingSection = ({
     onImageClick
 }) => {
     const works = [
-        { title: "GETSKILL", img: "./assets/images/digmar/getskill.png", level: "LV_20", tag: "SOCIAL", desc: "A comprehensive social media marketing campaign strategy." },
-        { title: "GETSKILL", img: "./assets/images/digmar/getskill2.png", level: "LV_15", tag: "SEARCH", desc: "Advanced search engine optimization for peak digital visibility." },
-        { title: "HUMMATECH", img: "./assets/images/digmar/hummatech.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
-        { title: "MISCHOOL", img: "./assets/images/digmar/mischool.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
-        { title: "MILINK", img: "./assets/images/digmar/milink.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
-        { title: "KODE_LISENSI", img: "./assets/images/digmar/kodelisensi.jpg", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
+        { title: "GETSKILL", img: "/assets/images/digmar/getskill.png", level: "LV_20", tag: "SOCIAL", desc: "A comprehensive social media marketing campaign strategy." },
+        { title: "GETSKILL", img: "/assets/images/digmar/getskill2.png", level: "LV_15", tag: "SEARCH", desc: "Advanced search engine optimization for peak digital visibility." },
+        { title: "HUMMATECH", img: "/assets/images/digmar/hummatech.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
+        { title: "MISCHOOL", img: "/assets/images/digmar/mischool.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
+        { title: "MILINK", img: "/assets/images/digmar/milink.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
+        { title: "KODE_LISENSI", img: "/assets/images/digmar/kodelisensi.jpg", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
     ];
 
     return (
@@ -84,7 +84,7 @@ const MarketingSection = ({
                         onClick={onBossClick}
                     >
                         <motion.img
-                            src="./assets/pixel/pixel1.png"
+                            src="/assets/pixel/pixel1.png"
                             alt="Marketing Strategy"
                             animate={bossHp <= 0 ? { y: 40, opacity: 0.2, rotate: -20, filter: 'grayscale(1)' } : { y: [0, -8, 0] }}
                             transition={bossHp <= 0 ? { duration: 1 } : { repeat: Infinity, duration: 4, ease: "easeInOut" }}
