@@ -10,11 +10,11 @@ const UiUxSection = ({
     onImageClick
 }) => {
     const works = [
-        { title: "JORDAN_BRANDING", img: "/assets/images/uiux/uiux.png", role: "UI_SYSTEM", color: "#FF00FF", desc: "High-fidelity mobile interface design with responsive layouts." },
-        { title: "RAMEN_SHOP", img: "/assets/images/uiux/uiux2.png", role: "UX_ARCH", color: "#00FF41", desc: "Complex dashboard state management and user journey mapping." },
-        { title: "TAKOYAKI", img: "/assets/images/uiux/uiux3.png", role: "UI/UX", color: "#00D1FF", desc: "Dynamic head-up display components for immersive experiences." },
-        { title: "NIKE_BRANDING", img: "/assets/images/uiux/uiux4.jpg", role: "UI/UX", color: "#FF00FF", desc: "High-fidelity mobile interface design with responsive layouts." },
-        { title: "CIMORY", img: "/assets/images/uiux/uiux5.png", role: "UX_ARCH", color: "#00FF41", desc: "Complex dashboard state management and user journey mapping." }
+        { title: "JORDAN_BRANDING", img: "/assets/images/uiux/uiux.png", role: "UI_SYSTEM", color: "#FF00FF", desc: "Sepatunya merah berani, biar pas lo gagal nge-dunk tetep keliatan gaya dan meyakinkan. Investasi terbaik buat kaki lo, meskipun dompet harus pura-pura pingsan liat harganya!" },
+        { title: "RAMEN_SHOP", img: "/assets/images/uiux/uiux2.png", role: "UX_ARCH", color: "#00FF41", desc: "Dompet menipis tapi lidah pengen gaya elit? Cuma 25k udah bisa makan ramen, bukan makan ati. Buruan order, sebelum kuah ramennya habis disruput duluan sama bayangan masa depan yang suram!" },
+        { title: "TAKOYAKI", img: "/assets/images/uiux/uiux3.png", role: "UI/UX", color: "#00D1FF", desc: "Makan takoyaki panas-panas biar lidah melepuh, tapi hati tetap luluh gara-gara diskon 50%. Cita rasa otentik Jepang, harga tetap bersahabat buat kamu yang saldo ATM-nya lagi kena mental!" },
+        { title: "NIKE_BRANDING", img: "/assets/images/uiux/uiux4.jpg", role: "UI/UX", color: "#FF00FF", desc: "Sepatunya warna-warni biar lawan silau dan nggak fokus pas lo lagi gocek. Buruan bungkus, mumpung desainnya lebih keren daripada alasan lo telat latihan!." },
+        { title: "CIMORY", img: "/assets/images/uiux/uiux5.png", role: "UX_ARCH", color: "#00FF41", desc: "Haus melanda tapi saldo tinggal sisa kembalian parkir? Tenang, 8 ribuan udah bisa gaya hidup sehat. Segernya dapet, kenyangnya dapet, dompet pun nggak perlu nangis bombay di pojokan!" }
     ];
 
     return (

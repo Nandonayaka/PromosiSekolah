@@ -10,12 +10,12 @@ const MarketingSection = ({
     onImageClick
 }) => {
     const works = [
-        { title: "GETSKILL", img: "/assets/images/digmar/getskill.png", level: "LV_20", tag: "SOCIAL", desc: "A comprehensive social media marketing campaign strategy." },
-        { title: "GETSKILL", img: "/assets/images/digmar/getskill2.png", level: "LV_15", tag: "SEARCH", desc: "Advanced search engine optimization for peak digital visibility." },
-        { title: "HUMMATECH", img: "/assets/images/digmar/hummatech.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
-        { title: "MISCHOOL", img: "/assets/images/digmar/mischool.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
-        { title: "MILINK", img: "/assets/images/digmar/milink.png", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
-        { title: "KODE_LISENSI", img: "/assets/images/digmar/kodelisensi.jpg", level: "LV_25", tag: "VIRAL", desc: "Viral marketing techniques to skyrocket user engagement." },
+        { title: "GETSKILL", img: "/assets/images/digmar/getskill.png", level: "LV_20", tag: "SOCIAL", desc: "Stop scrolling sampai jempol kapalan, mending upgrade skill biar nggak cuma nunggu hidayah. Buruan belajar di GetSkill, siapa tahu besok langsung jadi CEO!." },
+        { title: "GETSKILL", img: "/assets/images/digmar/getskill2.png", level: "LV_15", tag: "SEARCH", desc: "Muka bingung mikirin masa depan atau bingung cara buka file ZIP? Daripada cuma bengong di depan laptop, mending asah skill digital lo bareng GetSkill!" },
+        { title: "HUMMATECH", img: "/assets/images/digmar/hummatech.png", level: "LV_25", tag: "VIRAL", desc: "Capek magang cuma disuruh bikin kopi sama fotokopi? Mending ke Hummatech! Dapet pengalaman kerja beneran, biar CV lo nggak cuma berisi daftar hobi rebahan." },
+        { title: "MISCHOOL", img: "/assets/images/digmar/mischool.png", level: "LV_25", tag: "VIRAL", desc: "Dunia makin canggih,\nmasa cara belajarnya masih itu-itu aja?\nMIschool hadir biar belajar bareng jadi lebih simpel," },
+        { title: "MILINK", img: "/assets/images/digmar/milink.png", level: "LV_25", tag: "VIRAL", desc: "Capek gonta-ganti link di bio kayak ganti-ganti janji manis mantan? Pake MiLink aja, satu link buat semua biar hidup lo nggak berantakan kayak kamar kosan!" },
+        { title: "KODE_LISENSI", img: "/assets/images/digmar/kodelisensi.jpg", level: "LV_25", tag: "VIRAL", desc: "Hidup udah ribet, jangan ditambah software bajakan Pakai KodLisensi aja—legalnya dapet, amannya dapet, hematnya juga dapet. " },
     ];
 
     return (
