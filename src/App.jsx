@@ -11,15 +11,16 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <PixelWorld />,
+       
       },
       {
         path: 'about',
         element: <About />,
       },
       {
-        path: 'pixel-world',
-        element: <PixelWorld />,
+        path: 'old-lp',
+         element: <Home />,
       },
     ],
   },
