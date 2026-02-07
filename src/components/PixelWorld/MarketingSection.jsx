@@ -19,82 +19,83 @@ const MarketingSection = ({
     ];
 
     return (
-        <section className="relative mx-15 mb-80">
-            <div className="mb-12 grid items-center gap-12 lg:grid-cols-2">
+        <section className="relative px-6 mb-80">
+            <div className="mb-24 grid items-center gap-16 lg:grid-cols-2 max-w-7xl mx-auto">
                 {/* TEXT CONTENT */}
                 <div className="space-y-12">
-                    <div className="flex items-center gap-4">
-                        <div className="bg-[#FF4500] p-4 pixel-border shadow-[4px_4px_0_0_#000]">
-                            <Megaphone className="text-white" size={24} />
+                    <div className="flex items-center gap-6">
+                        <div className="bg-[#FF4500] p-5 pixel-border shadow-[4px_4px_0_0_#000]">
+                            <Megaphone className="text-white" size={28} />
                         </div>
                         <div>
-                            <h3 className="pixel-font text-2xl text-white uppercase tracking-tighter">MISSION: DIGITAL_MARKETING</h3>
-                            <p className="pixel-font text-[9px] text-[#FF4500] mt-1 opacity-80">LEVEL_01 // STRATEGY_PHASE</p>
+                            <h3 className="pixel-font text-2xl text-white uppercase tracking-tighter glitch-text transition-all duration-300">MISSION: DIGITAL_MARKETING</h3>
+                            <p className="pixel-font text-[10px] text-[#FF4500] mt-2 opacity-80 font-bold uppercase tracking-widest">LEVEL_01 // STRATEGY_PHASE</p>
                         </div>
                     </div>
 
-                    <p className="pixel-font text-xs leading-loose text-[#A0A0A0]">
+                    <p className="pixel-font text-xs leading-loose text-[#A0A0A0] max-w-xl">
                         &gt; Kembangkan strategi untuk mendominasi pasar digital. <br />
                         &gt; Analisis data, SEO, dan Social Media Ads sebagai senjata utama Anda.
                     </p>
 
-                    <div className="inline-block border-2 border-dashed border-[#FF4500]/50 bg-[#1A1A1A] p-4">
-                        <span className="pixel-font text-[10px] text-[#FF4500]">
+                    <div className="inline-block border-2 border-dashed border-[#FF4500]/30 bg-[#1A1A1A]/50 backdrop-blur-md p-6 rounded-sm">
+                        <span className="pixel-font text-[11px] text-[#FF4500] tracking-widest font-black">
                             OBJECTIVE: MAXIMIZE_REACH
                         </span>
                     </div>
                 </div>
 
                 {/* IMAGE & BOSS UI */}
-                <div className="flex flex-col items-center lg:items-end justify-center gap-6">
+                <div className="flex flex-col items-center lg:items-end justify-center gap-8">
                     <motion.div
-                        className="w-full max-w-[320px] space-y-3 p-4 bg-black/40 backdrop-blur-sm pixel-border border-[#FF4500]/30"
+                        className="w-full max-w-[340px] space-y-4 p-6 pixel-glass rounded-lg border-[#FF4500]/20 bg-black/50 shadow-[0_0_30px_rgba(255,69,0,0.1)]"
                         animate={bossHp <= 0 ? { opacity: 0.5, filter: 'grayscale(1)' } : {}}
                     >
                         <div className="flex justify-between items-end">
                             <div className="space-y-1">
                                 <div className="pixel-font text-[8px] text-[#A0A0A0]">LEVEL_99_BOSS</div>
-                                <div className="pixel-font text-[10px] text-white">ELITE_MARKETER</div>
+                                <div className="pixel-font text-[11px] text-white font-bold">ELITE_MARKETER</div>
                             </div>
-                            <div className="pixel-font text-[10px] text-[#FF4500]">HP: {bossHp}%</div>
+                            <div className="pixel-font text-[12px] text-[#FF4500] font-black">HP: {bossHp}%</div>
                         </div>
 
-                        <div className="h-5 w-full bg-[#1A1A1A] border-2 border-black p-[2px] shadow-[4px_4px_0_0_#000]">
+                        <div className="h-6 w-full bg-[#050505] border-2 border-black p-[2px] shadow-[4px_4px_0_0_#000]">
                             <motion.div
-                                className="h-full bg-gradient-to-r from-red-600 to-orange-500"
+                                className="h-full bg-gradient-to-r from-red-600 via-orange-500 to-yellow-400"
                                 initial={{ width: "100%" }}
                                 animate={{ width: `${bossHp}%` }}
                                 style={{ boxShadow: 'inset -4px 0 0 rgba(0,0,0,0.2)' }}
                             />
                         </div>
 
-                        <div className="flex justify-between items-center text-[8px] pixel-font">
+                        <div className="flex justify-between items-center text-[9px] pixel-font">
                             <div className="flex gap-2 items-center text-[#00FF41]">
-                                <div className="w-1 h-1 bg-[#00FF41] animate-pulse"></div>
+                                <div className="w-1.5 h-1.5 bg-[#00FF41] animate-pulse"></div>
                                 XP_GAIN: +{bossXp}
                             </div>
-                            <div className="text-[#FFD700]">STREAK_X1</div>
+                            <div className="text-[#FFD700] font-bold">STREAK_X1</div>
                         </div>
                     </motion.div>
 
                     <motion.div
                         className="relative cursor-crosshair group"
-                        whileTap={{ x: [0, -10, 10, -10, 0] }}
+                        whileTap={{ scale: 0.95, rotate: [0, -2, 2, 0] }}
                         transition={{ duration: 0.2 }}
                         onClick={onBossClick}
                     >
+                        <div className="absolute inset-0 bg-red-600/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         <motion.img
                             src="/assets/pixel/pixel1.png"
                             alt="Marketing Strategy"
-                            animate={bossHp <= 0 ? { y: 40, opacity: 0.2, rotate: -20, filter: 'grayscale(1)' } : { y: [0, -8, 0] }}
-                            transition={bossHp <= 0 ? { duration: 1 } : { repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                            className="w-full h-[400px] object-contain image-render-pixel group-hover:opacity-100 transition-opacity"
-                            style={{ opacity: bossHp <= 0 ? 0.2 : 0.8 }}
+                            animate={bossHp <= 0 ? { y: 40, opacity: 0.2, rotate: -20, filter: 'grayscale(1)' } : { y: [0, -12, 0] }}
+                            transition={bossHp <= 0 ? { duration: 1 } : { repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                            className="w-full h-[420px] object-contain image-render-pixel group-hover:brightness-125 transition-all"
+                            style={{ opacity: bossHp <= 0 ? 0.2 : 0.9 }}
                         />
                         {bossHp > 0 && (
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                                <div className="bg-white/10 backdrop-blur-md border-2 border-white pixel-font text-[10px] p-2 text-white">
-                                    CLICK_TO_ATTACK
+                                <div className="bg-white/10 backdrop-blur-xl border-2 border-white/50 pixel-font text-[11px] px-4 py-2 text-white shadow-2xl">
+                                    [ CLICK_TO_ATTACK ]
                                 </div>
                             </div>
                         )}
@@ -102,21 +103,21 @@ const MarketingSection = ({
                 </div>
             </div>
 
-            <div className="mb-16 flex flex-col items-center justify-center gap-4">
-                <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-[#FF4500] animate-ping"></div>
-                    <span className="pixel-font text-2xl text-white tracking-[0.3em]">HASIL KARYA</span>
-                    <div className="w-3 h-3 bg-[#FF4500] animate-ping"></div>
+            <div className="mb-24 flex flex-col items-center justify-center gap-6">
+                <div className="flex items-center gap-8">
+                    <div className="w-4 h-4 bg-[#FF4500] rotate-45 animate-ping"></div>
+                    <span className="pixel-font text-3xl text-white tracking-[0.4em] uppercase glitch-text">Hasil Karya</span>
+                    <div className="w-4 h-4 bg-[#FF4500] rotate-45 animate-ping"></div>
                 </div>
-                <div className="h-1 w-48 bg-gradient-to-r from-transparent via-[#FF4500] to-transparent"></div>
+                <div className="h-1 w-64 bg-gradient-to-r from-transparent via-[#FF4500] to-transparent opacity-50"></div>
             </div>
 
-            <div className="overflow-hidden relative py-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="overflow-hidden relative py-12 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
                 <motion.div
-                    className="flex gap-8 w-max"
+                    className="flex gap-12 w-max"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{
-                        duration: 20,
+                        duration: 30,
                         repeat: Infinity,
                         ease: "linear",
                         repeatType: "loop"
@@ -124,26 +125,26 @@ const MarketingSection = ({
                     whileHover={{ animationPlayState: 'paused' }}
                 >
                     {[...Array(2)].map((_, listIdx) => (
-                        <div key={listIdx} className="flex gap-8">
+                        <div key={listIdx} className="flex gap-12">
                             {works.map((item, i) => (
                                 <motion.div
                                     key={`${listIdx}-${i}`}
-                                    whileHover={{ scale: 1.02, y: -5 }}
-                                    className="bg-[#1A1A1A] p-3 pixel-border group hover:border-[#FF4500] transition-colors cursor-pointer w-[300px] flex-shrink-0"
+                                    whileHover={{ y: -12, scale: 1.05 }}
+                                    className="pixel-glass p-4 rounded-xl group hover:border-[#FF4500] transition-all cursor-pointer w-[320px] flex-shrink-0"
                                     onClick={() => onImageClick({ ...item, category: item.tag })}
                                 >
-                                    <div className="aspect-square bg-black overflow-hidden relative pixel-border border-[#222]">
-                                        <img src={item.img} className="w-full h-full object-cover image-render-pixel grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100" alt={item.title} />
-                                        <div className="absolute top-2 left-2 bg-black/90 px-2 py-1 pixel-font text-[7px] text-[#A0A0A0] border border-[#333]">
+                                    <div className="aspect-square bg-black/50 overflow-hidden relative pixel-border border-[#222] rounded-lg">
+                                        <img src={item.img} className="w-full h-full object-cover image-render-pixel grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" alt={item.title} />
+                                        <div className="absolute top-3 left-3 bg-black/80 px-3 py-1.5 pixel-font text-[8px] text-[#A0A0A0] border border-white/10 backdrop-blur-md">
                                             {item.tag}_MODULE
                                         </div>
-                                        <div className="absolute bottom-2 right-2 bg-[#FF4500] px-2 py-1 pixel-font text-[8px] text-white shadow-[2px_2px_0_0_#000]">
+                                        <div className="absolute bottom-3 right-3 bg-[#FF4500] px-3 py-1.5 pixel-font text-[9px] text-white shadow-[3px_3px_0_0_#000] font-bold">
                                             {item.level}
                                         </div>
                                     </div>
-                                    <div className="mt-4 flex justify-between items-center">
-                                        <div className="pixel-font text-[8px] text-white tracking-widest">{item.title}</div>
-                                        <div className="w-2 h-2 bg-[#FF4500]/20 rounded-full group-hover:bg-[#FF4500] transition-colors"></div>
+                                    <div className="mt-5 flex justify-between items-center px-2">
+                                        <div className="pixel-font text-[10px] text-white tracking-widest font-bold group-hover:text-[#FF4500] transition-colors">{item.title}</div>
+                                        <div className="w-2.5 h-2.5 bg-[#FF4500]/10 border border-[#FF4500]/30 rounded-full group-hover:bg-[#FF4500] group-hover:shadow-[0_0_10px_#FF4500] transition-all"></div>
                                     </div>
                                 </motion.div>
                             ))}

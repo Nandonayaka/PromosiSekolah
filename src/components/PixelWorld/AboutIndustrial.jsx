@@ -10,39 +10,43 @@ const AboutIndustrial = () => {
     ];
 
     return (
-        <section className="mb-32">
-            <div className="flex items-center gap-4 mb-12">
-                <div className="bg-[#00D1FF] p-3 pixel-border shadow-[4px_4px_0_0_#000]">
-                    <Target className="text-black" size={24} />
+        <section className="mb-80 max-w-7xl mx-auto px-6">
+            <div className="flex items-center gap-6 mb-16">
+                <div className="bg-[#00D1FF] p-5 pixel-border shadow-[4px_4px_0_0_#000]">
+                    <Target className="text-black" size={28} />
                 </div>
-                <h3 className="pixel-font text-2xl text-white uppercase tracking-tighter">APA ITU KELAS INDUSTRI?</h3>
+                <h3 className="pixel-font text-2xl md:text-3xl text-white uppercase tracking-tighter glitch-text leading-tight">APA ITU KELAS INDUSTRI?</h3>
             </div>
 
-            <div className="relative p-1 bg-[#001A33] pixel-border border-[#00D1FF]/30">
-                <div className="bg-[#000D1A] p-8 md:p-12 border-2 border-dashed border-[#00D1FF]/20 relative overflow-hidden">
-                    {/* Decorative background element */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#00D1FF]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <div className="pixel-glass p-1 rounded-2xl relative overflow-hidden group border-[#00D1FF]/20 shadow-[0_0_50px_rgba(0,209,255,0.1)]">
+                <div className="bg-[#050510]/80 p-8 md:p-16 rounded-2xl relative overflow-hidden">
+                    {/* Glowing background element */}
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D1FF]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-[#00D1FF]/20 transition-colors duration-1000"></div>
 
-                    <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-                        <div className="space-y-6">
-                            <p className="pixel-font text-xs leading-loose text-[#A0C0E0]">
-                                &gt; KELAS INDUSTRI adalah program kolaborasi eksklusif antara sekolah dengan <span className="text-[#00D1FF]">HUMMATECH</span> sebagai mitra industri resmi. <br /><br />
-                                &gt; Program ini dirancang untuk menyelaraskan kurikulum sekolah dengan kebutuhan nyata di dunia kerja, memastikan setiap siswa mendapatkan keahlian yang relevan. <br /><br />
-                                &gt; Di sini, siswa tidak hanya belajar dari buku, tapi langsung terjun ke dalam ekosistem profesional dengan pendampingan mentor ahli.
+                    <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+                        <div className="space-y-10">
+                            <p className="pixel-font text-[11px] md:text-xs leading-[2.5] text-[#A0C0E0] max-w-xl">
+                                <span className="text-[#00FF41] mr-2 text-lg leading-none">▮</span> KELAS INDUSTRI adalah program kolaborasi eksklusif antara sekolah dengan <span className="text-[#00D1FF] font-black underline underline-offset-4 decoration-2">HUMMATECH</span> sebagai mitra industri resmi. <br /><br />
+                                <span className="text-[#00FF41] mr-2 text-lg leading-none">▮</span> Program ini dirancang untuk menyelaraskan kurikulum sekolah dengan kebutuhan nyata di dunia kerja, memastikan setiap siswa mendapatkan keahlian yang relevan. <br /><br />
+                                <span className="text-[#00FF41] mr-2 text-lg leading-none">▮</span> Di sini, siswa tidak hanya belajar dari buku, tapi langsung terjun ke dalam ekosistem profesional dengan pendampingan mentor ahli.
                             </p>
 
-                            <div className="inline-flex items-center gap-4 p-4 bg-[#00D1FF]/10 border border-[#00D1FF]/30">
-                                <div className="w-2 h-2 bg-[#00D1FF] animate-pulse"></div>
-                                <span className="pixel-font text-[10px] text-[#00D1FF]">STATUS: INDUSTRY_READY_CERTIFIED</span>
+                            <div className="inline-flex items-center gap-5 p-5 bg-[#00D1FF]/5 border-2 border-dashed border-[#00D1FF]/20 rounded-sm">
+                                <div className="w-3 h-3 bg-[#00D1FF] animate-ping"></div>
+                                <span className="pixel-font text-[11px] text-[#00D1FF] font-black tracking-widest uppercase">STATUS: INDUSTRY_READY_CERTIFIED</span>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-6">
                             {features.map((f, i) => (
-                                <div key={i} className="p-4 bg-black/40 border border-[#333] space-y-3">
-                                    <div style={{ color: f.color }}>{f.icon}</div>
-                                    <div className="pixel-font text-[8px] text-white">{f.title}</div>
-                                    <div className="pixel-font text-[7px] text-[#666]">{f.desc}</div>
+                                <div key={i} className="pixel-glass p-6 rounded-xl border-white/5 space-y-5 group/card hover:border-white/20 transition-all duration-300">
+                                    <div className="w-12 h-12 flex items-center justify-center bg-black/40 rounded-lg pixel-border" style={{ color: f.color }}>
+                                        {f.icon}
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="pixel-font text-[10px] text-white font-bold tracking-widest leading-none">{f.title}</div>
+                                        <div className="pixel-font text-[8px] text-[#666] leading-relaxed group-hover/card:text-gray-400 transition-colors">{f.desc}</div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
