@@ -26,59 +26,25 @@ const PixelHero = ({ onStartAdventure }) => {
                     className="space-y-8 max-w-4xl"
                 >
                     <motion.h2
-                        whileHover="hover"
                         className="pixel-font text-4xl md:text-5xl lg:text-6xl leading-tight text-white cursor-default select-none relative group inline-block"
                     >
-                        {/* Subtle Corner Brackets */}
-                        <div className="absolute -inset-4 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                            <div className="absolute top-0 left-0 w-3 h-3 border-t-4 border-l-4 border-yellow-500/60"></div>
-                            <div className="absolute top-0 right-0 w-3 h-3 border-t-4 border-r-4 border-yellow-500/60"></div>
-                            <div className="absolute bottom-0 left-0 w-3 h-3 border-b-4 border-l-4 border-yellow-500/60"></div>
-                            <div className="absolute bottom-0 right-0 w-3 h-3 border-b-4 border-r-4 border-yellow-500/60"></div>
-                        </div>
-
-                        {/* Main Text with gentle scale */}
                         <motion.span
-                            variants={{
-                                hover: {
-                                    scale: 1.03,
-                                    transition: { duration: 0.3 }
-                                }
+                            animate={{
+                                textShadow: [
+                                    "0 0 5px rgba(255,255,255,0)",
+                                    "0 0 20px rgba(255,255,255,0.8)",
+                                    "0 0 5px rgba(255,255,255,0)"
+                                ]
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
                             }}
                             className="relative z-10 block"
                         >
-                            WELCOME TO <span className="text-yellow-500 group-hover:text-yellow-400 transition-colors">DIGITAL</span> EXHIBITION
+                            WELCOME TO <span className="text-yellow-500">DIGITAL</span> EXHIBITION
                         </motion.span>
-
-                        {/* Occasional Subtle Glitch Burst */}
-                        <motion.div
-                            variants={{
-                                hover: {
-                                    x: [0, -2, 2, -1, 0],
-                                    opacity: [0, 0.4, 0],
-                                    transition: {
-                                        repeat: Infinity,
-                                        duration: 0.15,
-                                        repeatDelay: 2.5
-                                    }
-                                }
-                            }}
-                            className="absolute inset-0 bg-cyan-500/20 mix-blend-screen pointer-events-none -z-10"
-                        />
-                        <motion.div
-                            variants={{
-                                hover: {
-                                    x: [0, 2, -2, 1, 0],
-                                    opacity: [0, 0.4, 0],
-                                    transition: {
-                                        repeat: Infinity,
-                                        duration: 0.15,
-                                        repeatDelay: 2.5
-                                    }
-                                }
-                            }}
-                            className="absolute inset-0 bg-red-500/20 mix-blend-screen pointer-events-none -z-20"
-                        />
                     </motion.h2>
                     <p className="pixel-font text-xs leading-loose text-[#E0E0E0]">
                         Gass! Ayo masuk ke dunia digital yang penuh kreativitas dan inovasi.
@@ -86,15 +52,24 @@ const PixelHero = ({ onStartAdventure }) => {
                         Saatnya lihat karya keren dari generasi muda yang siap jadi kreator digital masa depan!
                     </p>
                     <div className="flex gap-4">
-                        <button
-                            onClick={onStartAdventure}
-                            className="pixel-button bg-[#00FF41] hover:bg-[#00CC33] text-black border-white"
-                        >
-                            Start Adventure
-                        </button>
-                        <button className="pixel-button bg-[#333] hover:bg-[#444]">
-                            Save Game
-                        </button>
+                        <div className="relative group">
+                            {/* Focus Brackets for Button - Visible only on hover */}
+                            <div className="absolute -inset-4 pointer-events-none transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-110">
+                                <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-yellow-500 animate-[pulse_2s_infinite]"></div>
+                                <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-yellow-500 animate-[pulse_2s_infinite]"></div>
+                                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-yellow-500 animate-[pulse_2s_infinite]"></div>
+                                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-yellow-500 animate-[pulse_2s_infinite]"></div>
+                            </div>
+
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={onStartAdventure}
+                                className="pixel-button bg-[#00FF41] hover:bg-[#00CC33] text-black border-white relative z-10"
+                            >
+                                Start Adventure
+                            </motion.button>
+                        </div>
                     </div>
                 </motion.div>
 
@@ -103,14 +78,16 @@ const PixelHero = ({ onStartAdventure }) => {
                     animate={{ scale: 1, opacity: 1 }}
                     className="relative hidden lg:block"
                 >
-                    {/* Floating Pixel Elements */}
-                    <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                        className="absolute -top-6 -right-6 text-[#FFD160]"
-                    >
-                        <Star size={48} />
-                    </motion.div>
+                    {/* Floating Star - Now back to normal rotation */}
+                    <div className="absolute -top-6 -right-6">
+                        <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                            className="text-[#FFD160]"
+                        >
+                            <Star size={48} className="fill-current" />
+                        </motion.div>
+                    </div>
                 </motion.div>
             </div>
         </section>

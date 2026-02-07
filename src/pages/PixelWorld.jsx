@@ -33,6 +33,7 @@ const PixelWorld = () => {
     const [accessDeniedMsg, setAccessDeniedMsg] = useState(null);
     const [unlockMsg, setUnlockMsg] = useState(null);
     const [selectedTech, setSelectedTech] = useState(null);
+    const [isSquadCompleteModalOpen, setIsSquadCompleteModalOpen] = useState(false);
 
     const marketingRef = useRef(null);
     const uiuxRef = useRef(null);
@@ -93,7 +94,11 @@ const PixelWorld = () => {
                         }, 4000);
                     }, 1500);
                 } else {
-                    setUnlockedLevel(prev => Math.min(prev + 1, 3));
+                    // Final Level Completed
+                    setTimeout(() => {
+                        setIsSquadCompleteModalOpen(true);
+                        playSfx('unlock'); // Play unlock sound
+                    }, 1500);
                 }
             }
             const timer = setTimeout(() => {
@@ -286,6 +291,8 @@ const PixelWorld = () => {
                 unlockMsg={unlockMsg}
                 selectedTech={selectedTech}
                 setSelectedTech={setSelectedTech}
+                isSquadCompleteModalOpen={isSquadCompleteModalOpen}
+                setIsSquadCompleteModalOpen={setIsSquadCompleteModalOpen}
             />
         </div>
     );

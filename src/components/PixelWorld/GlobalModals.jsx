@@ -13,7 +13,9 @@ const GlobalModals = ({
     accessDeniedMsg,
     unlockMsg,
     selectedTech,
-    setSelectedTech
+    setSelectedTech,
+    isSquadCompleteModalOpen,
+    setIsSquadCompleteModalOpen
 }) => {
     return (
         <>
@@ -302,6 +304,93 @@ const GlobalModals = ({
                             <p className="text-center text-[10px] text-gray-600 animate-pulse uppercase tracking-[0.2em] pixel-font">
                                 -- AWAKEN YOUR POTENTIAL IN HUMMATECH INDUSTRIAL CLASS --
                             </p>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
+
+            {isSquadCompleteModalOpen && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="fixed inset-0 z-[10006] flex items-center justify-center bg-black/40 backdrop-blur-[2px] p-4"
+                >
+                    <motion.div
+                        initial={{ scale: 0, rotate: -5, y: 100 }}
+                        animate={{
+                            scale: 1,
+                            rotate: 0,
+                            y: 0,
+                        }}
+                        transition={{
+                            type: "spring",
+                            damping: 20,
+                            stiffness: 100
+                        }}
+                        className="max-w-md w-full bg-[#111] border-4 border-[#00FF41] p-1 relative overflow-hidden"
+                        style={{
+                            boxShadow: '10px 10px 0 0 #000',
+                        }}
+                    >
+                        {/* Smooth Neon Halo/Glow Overlay */}
+                        <motion.div
+                            animate={{
+                                opacity: [0.3, 0.6, 0.3],
+                                scale: [1, 1.05, 1]
+                            }}
+                            transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="absolute -inset-2 border-2 border-[#00FF41] blur-md pointer-events-none"
+                        />
+
+                        {/* Decorative background scanline sweep */}
+                        <motion.div
+                            animate={{ y: ["-100%", "200%"] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-x-0 h-20 bg-gradient-to-b from-transparent via-[#00FF41]/10 to-transparent pointer-events-none z-0"
+                        />
+
+                        <div className="bg-[#111] p-8 flex flex-col items-center text-center space-y-6 relative z-10">
+                            <motion.div
+                                animate={{
+                                    boxShadow: [
+                                        "0 0 0px #00FF41",
+                                        "0 0 20px #00FF41",
+                                        "0 0 0px #00FF41"
+                                    ]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                className="w-20 h-20 bg-[#00FF41]/10 flex items-center justify-center border-2 border-[#00FF41] relative"
+                            >
+                                <Star className="text-[#00FF41] fill-[#00FF41] drop-shadow-[0_0_8px_#00FF41]" size={40} />
+                                <div className="absolute -top-1 -left-1 w-2 h-2 bg-white"></div>
+                                <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-white"></div>
+                            </motion.div>
+
+                            <div className="space-y-4">
+                                <h3 className="pixel-font text-lg text-[#00FF41]">CONGRATULATIONS!</h3>
+                                <div className="w-full h-1 bg-[#222]">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: "100%" }}
+                                        className="h-full bg-[#00FF41]"
+                                    />
+                                </div>
+                                <p className="pixel-font text-[10px] leading-loose text-gray-300">
+                                    SELAMAT! ANDA SUDAH TAHU SEMUA SQUAD YANG ADA DI INDUSTRI.
+                                    SEKARANG AYO LANJUT MENGENAL APA ITU KELAS INDUSTRI!
+                                </p>
+                            </div>
+
+                            <button
+                                onClick={() => setIsSquadCompleteModalOpen(false)}
+                                className="pixel-button bg-[#00FF41] text-black w-full hover:bg-white transition-colors"
+                            >
+                                CONTINUE_ADVENTURE
+                            </button>
                         </div>
                     </motion.div>
                 </motion.div>

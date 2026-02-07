@@ -30,6 +30,7 @@ const AdvantagesSection = () => {
                 <div className="bg-[#050510]/80 p-10 md:p-16 rounded-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-[#FFD700]/20 transition-colors duration-1000"></div>
 
+
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 relative z-10">
                         {advantages.map((adv, i) => (
                             <div key={i} className="text-center space-y-8 group/card">
