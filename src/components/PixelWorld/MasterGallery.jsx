@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Monitor, ChevronLeft, ChevronRight } from 'lucide-react';
+import { desc } from 'framer-motion/client';
 
 const PORTFOLIO_ITEMS = [
-    { id: 1, title: "Quest for Code", category: "Game Dev", img: "/assets/images/web/web1.jpeg" },
-    { id: 14, title: "Cyber Shield", category: "Security", img: "/assets/images/web/web14.jpeg" },
-    { id: 2, title: "Neo City", category: "Digital Art", img: "/assets/images/web/web2.jpeg" },
-    { id: 4, title: "Pixel Bot 3000", category: "Robotics", img: "/assets/images/web/web4.jpeg" },
-    { id: 5, title: "Vaporwave Vibes", category: "Marketing", img: "/assets/images/web/web5.jpeg" },
-    { id: 6, title: "Pixel Dungeon", category: "Level Design", img: "/assets/images/web/web6.jpeg" },
-    { id: 7, title: "Cyber Shield", category: "Security", img: "/assets/images/web/web7.jpeg" },
-    { id: 3, title: "Retro UI Kit", category: "UI Design", img: "/assets/images/web/web3.jpeg" },
-    
-    { id: 9, title: "Neo City", category: "Digital Art", img: "/assets/images/web/web9.jpeg" },
-    { id: 10, title: "Retro UI Kit", category: "UI Design", img: "/assets/images/web/web10.jpeg" },
-    
-    { id: 13, title: "Pixel Dungeon", category: "Level Design", img: "/assets/images/web/web13.jpeg" },
-    
-    { id: 15, title: "Pixel Quest", category: "Game Dev", img: "/assets/images/web/web15.jpeg" },
-    { id: 8, title: "Pixel Quest", category: "Game Dev", img: "/assets/images/web/web8.jpeg" },
-    { id: 11, title: "Pixel Bot 3000", category: "Robotics", img: "/assets/images/web/web11.jpeg" },
-    { id: 12, title: "Vaporwave Vibes", category: "Marketing", img: "/assets/images/web/web12.jpeg" },
-
-
+    { id: 1, title: "ArcesFerry", category: "Website", img: "/assets/images/web/web1.jpeg", desc: "Pesan tiket kapal secepat kilat, biar nggak karam ditinggal harapan yang nggak pasti. Ayo masuk PPLG, biar lo bisa bikin sistem keren yang sat-set kayak ArcesFerry ini!"  },
+    { id: 2, title: "Seminar", category: "Website", img: "/assets/images/web/web14.jpeg", desc: "" },
+    { id: 3, title: "Neo City", category: "Digital Art", img: "/assets/images/web/web9.jpeg", desc: "Gaya rebahan tapi absensi tetap aman, nggak perlu lagi drama titip tanda tangan yang bikin jantung deg-degan. Yuk masuk PPLG, biar lo bisa bikin sistem absensi canggih yang bikin tukang bolos auto tobat!" },
+    { id: 4, title: "Kasir-Kilat (Cashier Z)", category: "Robotics", img: "/assets/images/web/web16.jpeg", desc: "Pusing itung stok barang sampai mata juling? Pake sistem ini biar jualan lo terpantau rapi tanpa sisa. Yuk masuk PPLG, kita belajar bikin dashboard canggih supaya masa depan lo nggak sesuram tumpukan struk manual!"},
+    { id: 5, title: "SkyBound", category: "Marketing", img: "/assets/images/web/web5.jpeg", desc: "Cukup pesawat aja yang PHP sering delay, rencana liburan lo jangan sampai ikut-ikutan melay. Gas masuk PPLG, kita belajar bikin sistem canggih biar user bisa terbang menembus cakrawala dengan sekali klik!" },
+    { id: 6, title: "Nando-Verse", category: "Level Design", img: "/assets/images/web/web6.jpeg", desc:"Belajar banyak bahasa pemrograman biar bisa bikin web keren, bukan cuma jago baca bahasa tubuh gebetan yang penuh kode. Yuk join PPLG, tempatnya asah kreativitas sampai lo bisa bikin dunia digital versi lo sendiri!" },
+    { id: 7, title: "HAMSHOP", category: "Security", img: "/assets/images/web/web7.jpeg",desc: "Belanja sepatu jangan cuma liat diskonnya, tapi liat juga apakah dia bisa menopang beban hidupmu yang berat. Yuk masuk PPLG, biar lo bisa bikin toko online keren yang bikin dompet orang auto khilaf!" },
+    { id: 8, title: "ArcesBooks", category: "UI Design", img: "/assets/images/web/web3.jpeg", desc:"Baca buku jangan cuma nunggu motivasi, nanti malah berakhir jadi koleksi debu di hati. Buruan gabung PPLG, biar lo bisa rakit perpustakaan digital keren yang nggak bikin pusing pembaca!" },
+    { id: 9, title: "Pustaka-Hub", category: "Digital Art", img: "/assets/images/web/web2.jpeg", desc:"Cari ilmu jangan kayak cari jodoh, jangan mau nunggu lama kalau akhirnya cuma dighosting. Yuk masuk PPLG, kita rakit sistem perpustakaan digital biar orang pinter nggak perlu ribet ngantre!" },
+    { id: 10, title: "Skantiga-Connect", category: "UI Design", img: "/assets/images/web/web10.jpeg", desc:"Sekolah mah bebas, asal jangan bebas dari tanggung jawab dan masa depan yang jelas. Ayo masuk PPLG di SMKN 3 Pamekasan, tempatnya rakit skill sampai lo jadi rebutan industri!" },
+    { id: 11, title: "PROGRES-In", category: "Level Design", img: "/assets/images/web/web13.jpeg", desc: "Jangan biarkan tugasmu menumpuk sampai jadi candi, mending dipantau rapi biar bos nggak hobi nyari-nyari. Ayo masuk jurusan PPLG, kita belajar bikin sistem manajemen cerdas biar hidup lo lebih teratur dan berkelas!" },
+    { id: 12, title: "ArcesShop", category: "Game Dev", img: "/assets/images/web/web15.jpeg", desc: "Borong album bias jangan pakai mikir, daripada nyesel kehabisan terus nangis di pojokan kamar. Yuk join PPLG, biar lo bisa bikin aplikasi belanja yang sat-set buat para K-Popers garis keras!" },
+    { id: 13, title: "RumahKita-Care", category: "Game Dev", img: "/assets/images/web/web8.jpeg", desc: "Kalau belum bisa kasih kepastian ke gebetan, mending kasih bantuan pasti buat mereka yang membutuhkan. Masuk PPLG yuk, biar lo bisa bikin platform kebaikan yang manfaatnya jauh lebih awet daripada kenangan mantan!" },
+    { id: 14, title: "SmartSchool-360", category: "Robotics", img: "/assets/images/web/web11.jpeg", desc: "Urusan absen sampai nilai jadi makin sat-set, nggak perlu lagi ribet cari tumpukan kertas yang hobi ngilang pas dicari. Ayo masuk PPLG, biar lo jago bikin sistem manajemen sekolah yang bikin guru-guru auto senyum bahagia!" },
+    { id: 15, title: "Si-Admin Pro", category: "Marketing", img: "/assets/images/web/web12.jpeg", desc: "Pantau statistik siswa sejelas liat dosa sendiri, dari yang rajin masuk sampai yang hobi \"menghilang\" tanpa kabar. Yuk gabung PPLG, biar lo bisa rakit sistem dashboard sekeren ini dan jadi penguasa data di masa depan!" },
+    { id: 16, title: "DigiLib-Master", category: "Marketing", img: "/assets/images/web/web17.jpeg", desc: "Pantau peminjaman buku semudah memantau status WA gebetan, lengkap dengan peringatan buat mereka yang hobi telat balikin. Ayo gabung PPLG, biar lo bisa bangun ekosistem digital canggih yang bikin perpustakaan jadi tempat paling keren di sekolah!" },
+    { id: 17, title: "Kitara-Brew", category: "Robotics", img: "/assets/images/web/web4.jpeg", desc: "Nongkrong santai sambil ngopi itu seni, apalagi kalau ditemani menu yang bikin hati tenang tanpa bayang-bayang mantan. Ayo masuk PPLG, kita belajar bikin website kafe yang estetik biar pelanggan makin betah berlama-lama mesan kopi!" },
 ];
 
 const MasterGallery = ({ onImageClick }) => {
@@ -42,7 +40,13 @@ const MasterGallery = ({ onImageClick }) => {
     );
 
     return (
-        <section className="w-full max-w-7xl py-8">
+        <motion.div
+            className="w-full max-w-7xl "
+            initial={{ opacity: 0, y: 30 }} 
+            whileInView={{ opacity: 1, y: 2 }} 
+            viewport={{ once: true, amount: 0.3 }} 
+            transition={{ duration: 0.3, ease: "easeOut" }}
+        >
             <div className="flex items-center gap-4 mb-12">
                 <div className="bg-[#FF4500] p-3 pixel-border shadow-[4px_4px_0_0_#000]">
                     <Monitor className="text-white" size={24} />
@@ -55,16 +59,17 @@ const MasterGallery = ({ onImageClick }) => {
             <div className="relative flex items-center justify-center gap-2 md:gap-6">
                 <button 
                     onClick={prevPage}
+                    disabled={isFirstPage} 
                     className={`z-20 w-10 h-[60px] flex items-center justify-center transition-all shrink-0 border-2
                         ${isFirstPage 
-                            ? 'bg-[#1A1A1A] border-[#333] text-[#444] cursor-not-allowed' // Border digelapkan tapi tetap ada
+                            ? 'bg-[#1A1A1A] border-[#333] text-[#444] cursor-not-allowed' 
                             : 'bg-[#1A1A1A] border-[#FFD700] text-[#FFD700] hover:bg-[#FFD700] hover:border-black hover:text-black cursor-pointer shadow-[4px_4px_0_0_#000] active:translate-x-1 active:translate-y-1 active:shadow-none'
                         }`}
                 >
                     <ChevronLeft size={28} />
                 </button>
 
-                <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
+                <div className="flex-1 min-h-[400px]">
                     <AnimatePresence mode="wait">
                         <motion.div 
                             key={currentPage}
@@ -72,18 +77,18 @@ const MasterGallery = ({ onImageClick }) => {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.3 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 col-span-full"
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 transition-all "
                         >
                             {displayedItems.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="group cursor-pointer p-2 bg-[#1A1A1A] pixel-border border-[#333] hover:border-[#FFD700] transition-all flex flex-col"
+                                    className="group cursor-pointer p-2 bg-[#1A1A1A] pixel-border border-[#333] hover:border-[#FFD700] flex flex-col hover:scale-105 transition-all duration-300 group"
                                     onClick={() => onImageClick(item)}
                                 >
                                     <div className="relative aspect-video overflow-hidden mb-4 bg-black">
                                         <img 
                                             src={item.img} 
-                                            className="w-full h-full object-cover image-render-pixel group-hover:scale-110 transition-transform duration-500" 
+                                            className="w-full h-full object-cover image-render-pixel " 
                                             alt={item.title} 
                                         />
                                         <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
@@ -114,6 +119,7 @@ const MasterGallery = ({ onImageClick }) => {
 
                 <button 
                     onClick={nextPage}
+                    disabled={isLastPage} 
                     className={`z-20 w-10 h-[60px] flex items-center justify-center transition-all shrink-0 border-2
                         ${isLastPage 
                             ? 'bg-[#1A1A1A] border-[#333] text-[#444] cursor-not-allowed' 
@@ -131,7 +137,7 @@ const MasterGallery = ({ onImageClick }) => {
                 </div>
                 <div className={`h-[2px] flex-1 transition-colors ${isLastPage ? 'bg-[#222]' : 'bg-gray-600/40'}`}></div>
             </div>
-        </section>
+        </motion.div>
     );
 };
 
