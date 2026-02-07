@@ -4,11 +4,11 @@ import { Coffee } from 'lucide-react';
 
 const NpcTestimonials = () => {
     const testimonials = [
-        { name: "Prince UI UX", text: "Kreativitas siswa tahun ini benar-benar di luar jangkauan! Ini adalah masa depan digital yang nyata.", avatar: "/assets/images/tefa/angga.jpeg", color: "#00FF41" },
-        { name: "Prince BE", text: "Setiap piksel di sini bercerita tentang kerja keras dan inovasi yang luar biasa.", avatar: "/assets/images/tefa/ega.jpeg", color: "#FF00FF" },
-        { name: "Prince QA", text: "Pengalaman web yang unik! Rasanya seperti bermain JRPG sambil menjelajahi pameran.", avatar: "/assets/images/tefa/valen.jpeg", color: "#FFD700" },
-        { name: "Prince PM", text: "Setiap piksel di sini bercerita tentang kerja keras dan inovasi yang luar biasa.", avatar: "/assets/images/tefa/hilman.jpeg", color: "#FF00FF" },
-        { name: "Prince FE", text: "Pengalaman web yang unik! Rasanya seperti bermain JRPG sambil menjelajahi pameran.", avatar: "/assets/images/tefa/firuz.jpeg", color: "#FFD700" },
+        { name: "Prince UI UX", text: "Desain itu bukan cuma pajangan, kalau user tersesat ya tandanya alurmu harus di-rombak total. Ayo masuk jurusan PPLG, kita rakit alur aplikasi yang nggak bikin orang emosi!", avatar: "/assets/images/tefa/angga.jpeg", color: "#00FF41" },
+        { name: "Prince BE", text: "Dari sekadar pakai teknologi, jadi pencipta sistem yang bikin bangga diri sendiri. Gabung jurusan PPLG, asah logika lo buat rakit sistem yang paten.", avatar: "/assets/images/tefa/ega.jpeg", color: "#FF00FF" },
+        { name: "Prince QA", text: "Belajar coding doang nggak cukup, harus paham kualitas biar aplikasi nggak penuh bug. Masuk PPLG yuk, jadi 'hakim' aplikasi yang jago jaga mutu!", avatar: "/assets/images/tefa/valen.jpeg", color: "#FFD700" },
+        { name: "Prince PM", text: "Bukan cuma jago coding, tapi juga jago ngatur strategi biar produk nggak jadi sampah digital. Gabung PPLG sekarang, asah jiwa kepemimpinanmu buat jadi bos masa depan!", avatar: "/assets/images/tefa/hilman.jpeg", color: "#FF00FF" },
+        { name: "Prince FE", text: "Visual berantakan bikin user sakit mata, mending bikin tampilan yang lebih mulus dari janji mantan.Gas ke PPLG, jadi jagoan bikin antarmuka aplikasi yang estetik!", avatar: "/assets/images/tefa/firuz.jpeg", color: "#FFD700" },
     ];
 
     return (
@@ -32,7 +32,7 @@ const NpcTestimonials = () => {
                         <img src={npc.avatar} alt={npc.name} className="hidden md:flex w-20 h-20 bg-[#333] pixel-border items-center justify-center text-4xl shadow-[4px_4px_0_0_#000]" />
                         <div className="flex-grow bg-[#1A1A1A] p-8 pixel-border relative shadow-[6px_6px_0_0_rgba(0,0,0,0.5)]">
                             <div className="pixel-font text-[10px] mb-4" style={{ color: npc.color }}>{npc.name} says:</div>
-                            <p className="pixel-font text-xs md:text-sm leading-loose text-white italic tracking-wider">
+                            <p className="pixel-font text-xs md:text-[14px] leading-loose text-white italic tracking-wider">
                                 "{npc.text}"
                             </p>
                             <div className="absolute top-2 right-2 flex gap-1">
