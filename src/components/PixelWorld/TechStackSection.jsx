@@ -1,4 +1,5 @@
 import { Code } from 'lucide-react';
+import { playSfx } from '../../utils/SoundUtils';
 const TechStackSection = ({ techStack, setSelectedTech, selectedTech }) => {
   return (
     <section >
@@ -30,7 +31,14 @@ const TechStackSection = ({ techStack, setSelectedTech, selectedTech }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-20">
           {techStack.map((tech) => (
-            <div key={tech.name} onClick={() => setSelectedTech(tech)} className="group relative border-2 border-gray-800 bg-gray-900/40 p-6 transition-all hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] rounded-2xl cursor-pointer flex items-center justify-between">
+            <div
+              key={tech.name}
+              onClick={() => {
+                playSfx('click');
+                setSelectedTech(tech);
+              }}
+              className="group relative border-2 border-gray-800 bg-gray-900/40 p-6 transition-all hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] rounded-2xl cursor-pointer flex items-center justify-between"
+            >
               <div className="flex items-center gap-4 z-10">
                 <div className="w-14 h-14 p-2 bg-white/5 border border-white/10 rounded-xl group-hover:scale-110 transition-transform">
                   <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" />

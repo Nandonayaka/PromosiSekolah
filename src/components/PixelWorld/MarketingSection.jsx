@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Megaphone, Rocket } from 'lucide-react';
+import { playSfx } from '../../utils/SoundUtils';
 
 const MarketingSection = ({
     bossHp,
@@ -131,7 +132,10 @@ const MarketingSection = ({
                                     key={`${listIdx}-${i}`}
                                     whileHover={{ y: -12, scale: 1.05 }}
                                     className="pixel-glass p-4 rounded-xl group hover:border-[#FF4500] transition-all cursor-pointer w-[320px] flex-shrink-0"
-                                    onClick={() => onImageClick({ ...item, category: item.tag })}
+                                    onClick={() => {
+                                        playSfx('click');
+                                        onImageClick({ ...item, category: item.tag });
+                                    }}
                                 >
                                     <div className="aspect-square bg-black/50 overflow-hidden relative pixel-border border-[#222] rounded-lg">
                                         <img src={item.img} className="w-full h-full object-cover image-render-pixel grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" alt={item.title} />
@@ -155,7 +159,10 @@ const MarketingSection = ({
 
             <div className="mt-20 flex justify-center">
                 <button
-                    onClick={onNextMission}
+                    onClick={() => {
+                        playSfx('click');
+                        onNextMission();
+                    }}
                     className="pixel-button bg-[#FF4500] hover:scale-105 transition-transform flex items-center gap-3 shadow-[4px_4px_0_0_#000]"
                 >
                     <span className="pixel-font text-[10px]">NEXT_MISSION: UI_UX_CRAFTING</span>

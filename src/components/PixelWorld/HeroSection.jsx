@@ -26,7 +26,7 @@ const HeroSection = ({ onStartAdventure }) => {
                     className="space-y-8"
                 >
                     <h2 className="pixel-font text-4xl md:text-5xl lg:text-6xl leading-tight text-white">
-                        WELCOME TO <span className="text-yellow-500">DIGITAL</span> EXHIBITION
+                        WELCOME TO PPLG <span className="text-yellow-500">DIGITAL</span> EXHIBITION
                     </h2>
                     <p className="pixel-font text-xs leading-loose text-[#E0E0E0]">
                         Gass! Ayo masuk ke dunia digital yang penuh kreativitas dan inovasi.

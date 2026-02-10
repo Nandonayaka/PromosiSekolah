@@ -86,7 +86,7 @@ const Home = () => {
 
                     <h1 className="outfit-font text-5xl md:text-7xl lg:text-8xl font-black text-[#073B4C] leading-[0.9] tracking-tight">
                         <SplitText
-                            text="Wellcome"
+                            text="Wellcome to pplg"
                             className="block"
                             delay={50}
                             textAlign="left"

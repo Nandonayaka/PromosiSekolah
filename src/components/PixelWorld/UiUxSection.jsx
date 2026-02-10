@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Palette, Rocket, Star } from 'lucide-react';
+import { playSfx } from '../../utils/SoundUtils';
 
 const UiUxSection = ({
     uiBossHp,
@@ -130,7 +131,10 @@ const UiUxSection = ({
                                     key={`${listIdx}-${i}`}
                                     whileHover={{ y: -12, scale: 1.05 }}
                                     className="pixel-glass p-4 rounded-xl group hover:border-[#FF00FF] transition-all cursor-pointer w-[350px] flex-shrink-0"
-                                    onClick={() => onImageClick({ ...item, category: item.role })}
+                                    onClick={() => {
+                                        playSfx('click');
+                                        onImageClick({ ...item, category: item.role });
+                                    }}
                                 >
                                     <div className="aspect-video bg-black/50 overflow-hidden relative pixel-border border-[#222] rounded-lg">
                                         <img src={item.img} className="w-full h-full object-cover image-render-pixel grayscale group-hover:grayscale-0 transition-all duration-700" alt={item.title} />
@@ -153,7 +157,10 @@ const UiUxSection = ({
 
             <div className="mt-20 flex justify-center">
                 <button
-                    onClick={onNextMission}
+                    onClick={() => {
+                        playSfx('click');
+                        onNextMission();
+                    }}
                     className="pixel-button bg-[#FF00FF] hover:scale-105 transition-transform flex items-center gap-3 shadow-[4px_4px_0_0_#000]"
                 >
                     <span className="pixel-font text-[10px]">NEXT_MISSION: SQUAD_DEVELOPMENT</span>

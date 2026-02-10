@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Rocket, Star } from 'lucide-react';
+import { playSfx } from '../../utils/SoundUtils';
 
 const GlobalModals = ({
     selectedImg,
@@ -84,7 +85,10 @@ const GlobalModals = ({
                                     {selectedImg.title}
                                 </h3>
                                 <button
-                                    onClick={() => setSelectedImg(null)}
+                                    onClick={() => {
+                                        playSfx('click');
+                                        setSelectedImg(null);
+                                    }}
                                     className="pixel-font text-[10px] text-[#FF4500] transition-transform hover:scale-110 active:scale-95"
                                 >
                                     [ CLOSE_X ]
@@ -139,7 +143,15 @@ const GlobalModals = ({
                             <div className="text-xl md:text-2xl pixel-font" style={{ color: activeSquadBoss.color }}>
                                 BOSS BATTLE: {activeSquadBoss.role}_MASTER
                             </div>
-                            <button onClick={() => setIsSquadModalOpen(false)} className="text-red-500 hover:scale-110 p-2 pixel-font">[ ESCAPE ]</button>
+                            <button
+                                onClick={() => {
+                                    playSfx('click');
+                                    setIsSquadModalOpen(false);
+                                }}
+                                className="text-red-500 hover:scale-110 p-2 pixel-font"
+                            >
+                                [ ESCAPE ]
+                            </button>
                         </div>
 
                         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -255,7 +267,13 @@ const GlobalModals = ({
                                     </span>
                                 </div>
                             </div>
-                            <button onClick={() => setSelectedTech(null)} className="text-gray-500 hover:text-orange-500 transition-colors font-bold pixel-font text-[10px] p-2 bg-black/40 border-2 border-[#333] hover:border-orange-500/50">
+                            <button
+                                onClick={() => {
+                                    playSfx('click');
+                                    setSelectedTech(null);
+                                }}
+                                className="text-gray-500 hover:text-orange-500 transition-colors font-bold pixel-font text-[10px] p-2 bg-black/40 border-2 border-[#333] hover:border-orange-500/50"
+                            >
                                 [ CLOSE_X ]
                             </button>
                         </div>
@@ -386,7 +404,10 @@ const GlobalModals = ({
                             </div>
 
                             <button
-                                onClick={() => setIsSquadCompleteModalOpen(false)}
+                                onClick={() => {
+                                    playSfx('confirm');
+                                    setIsSquadCompleteModalOpen(false);
+                                }}
                                 className="pixel-button bg-[#00FF41] text-black w-full hover:bg-white transition-colors"
                             >
                                 CONTINUE_ADVENTURE

@@ -43,7 +43,7 @@ const PixelHero = ({ onStartAdventure }) => {
                             }}
                             className="relative z-10 block"
                         >
-                            WELCOME TO <span className="text-yellow-500">DIGITAL</span> EXHIBITION
+                            WELCOME TO PPLG <span className="text-yellow-500">DIGITAL</span> EXHIBITION
                         </motion.span>
                     </motion.h2>
                     <p className="pixel-font text-xs leading-loose text-[#E0E0E0]">

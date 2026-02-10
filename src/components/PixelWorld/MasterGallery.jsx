@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Monitor, ChevronLeft, ChevronRight } from 'lucide-react';
+import { playSfx } from '../../utils/SoundUtils';
 import { desc } from 'framer-motion/client';
 
 const PORTFOLIO_ITEMS = [
@@ -31,8 +32,18 @@ const MasterGallery = ({ onImageClick }) => {
     const isFirstPage = currentPage === 0;
     const isLastPage = currentPage === totalPages - 1;
 
-    const nextPage = () => { if (!isLastPage) setCurrentPage(prev => prev + 1); };
-    const prevPage = () => { if (!isFirstPage) setCurrentPage(prev => prev - 1); };
+    const nextPage = () => {
+        if (!isLastPage) {
+            playSfx('click');
+            setCurrentPage(prev => prev + 1);
+        }
+    };
+    const prevPage = () => {
+        if (!isFirstPage) {
+            playSfx('click');
+            setCurrentPage(prev => prev - 1);
+        }
+    };
 
     const displayedItems = PORTFOLIO_ITEMS.slice(
         currentPage * itemsPerPage,
@@ -83,7 +94,10 @@ const MasterGallery = ({ onImageClick }) => {
                                 <div
                                     key={item.id}
                                     className="group cursor-pointer p-2 bg-[#1A1A1A] pixel-border border-[#333] hover:border-[#FFD700] flex flex-col hover:scale-105 transition-all duration-300 group"
-                                    onClick={() => onImageClick(item)}
+                                    onClick={() => {
+                                        playSfx('click');
+                                        onImageClick(item);
+                                    }}
                                 >
                                     <div className="relative aspect-video overflow-hidden mb-4 bg-black">
                                         <img

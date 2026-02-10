@@ -18,6 +18,7 @@ import GlobalModals from '../components/PixelWorld/GlobalModals';
 import { techStack } from '../components/storage/StorageTech';
 import TechStackSection from '../components/PixelWorld/TechStackSection';
 import CareerPathSection from '../components/PixelWorld/CareerPathSection';
+import { playSfx } from '../utils/SoundUtils';
 
 const PixelWorld = () => {
     const [score, setScore] = useState(0);
@@ -40,21 +41,10 @@ const PixelWorld = () => {
     const squadRef = useRef(null);
 
     const scrollToSection = (ref) => {
+        playSfx('click');
         ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    const playSfx = (type) => {
-        const sounds = {
-            attack: '/assets/audio/bosshit.mp3',
-            enter: '/assets/audio/boss.mp3',
-            win: '/assets/audio/bossdeath.mp3',
-            lock: '/assets/audio/notif.mp3',
-            unlock: '/assets/audio/unlock.mp3'
-        };
-        const audio = new Audio(sounds[type]);
-        audio.volume = 0.5;
-        audio.play().catch(e => console.log("Audio play failed:", e));
-    };
 
     const handleSquadRoleClick = (roleData, index) => {
         if (index > unlockedLevel) {
